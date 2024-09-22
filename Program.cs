@@ -1,33 +1,51 @@
-﻿public class Program
+﻿using System.Diagnostics;
+
+public class Program
 {
+    public static List<TestingThread> runningThreads;
+
     public static void Main(string[] args)
     {
         int numberOfFaces = 6;
+        int sizeOfBatch = 600;
+        int numberOfTests = 1000000;
         double marginOfError = .01d;
-        int sizeOfBatch = 10;
 
-        CalculateNumberOfTries(new PureRandomDice(numberOfFaces), numberOfFaces, sizeOfBatch, marginOfError);
-        CalculateNumberOfTries(new NonRepeatingDice(numberOfFaces), numberOfFaces, sizeOfBatch, marginOfError);
-        CalculateNumberOfTries(new SelfAdjustingDice(numberOfFaces), numberOfFaces, sizeOfBatch, marginOfError);
-        CalculateNumberOfTries(new NonRepeatingSelfAdjustingDice(numberOfFaces), numberOfFaces, sizeOfBatch, marginOfError);
-        CalculateNumberOfTries(new PureDeterministicDice(numberOfFaces), numberOfFaces, sizeOfBatch, marginOfError);
-    }
+        runningThreads =
+        [
+            new TestingThread(new PureRandomDice(numberOfFaces),
+                numberOfFaces, sizeOfBatch, numberOfTests, marginOfError, "Pure Random Dice"),
+            new TestingThread(new NonRepeatingDice(numberOfFaces),
+                numberOfFaces, sizeOfBatch, numberOfTests, marginOfError, "Non Repeating Dice"),
+            new TestingThread(new SelfAdjustingDice(numberOfFaces),
+                numberOfFaces, sizeOfBatch, numberOfTests, marginOfError, "Self Adjusting Dice"),
+            new TestingThread(new NonRepeatingSelfAdjustingDice(numberOfFaces),
+                numberOfFaces, sizeOfBatch, numberOfTests, marginOfError, "Non Repeating Self Adjusting Dice"),
+            new TestingThread(new PureDeterministicDice(numberOfFaces),
+                numberOfFaces, sizeOfBatch, numberOfTests, marginOfError, "Pure Deterministic Dice")
+        ];
 
-    private static void CreateBatchOfResults(IDice diceToRoll, int sizeOfBatch, ref List<int> results)
-    {
-        for (int i = 0; i < sizeOfBatch; i++)
-        {
-            results.Add(diceToRoll.Roll());
-        }
-    }
+        Stopwatch stopwatch = new();
+        stopwatch.Start();
 
-    private static void CalculateNumberOfTries(IDice dice, int numberOfFaces, int sizeOfBatch, double marginOfError)
-    {
-        List<int> results = new();
         do
         {
-            CreateBatchOfResults(dice, sizeOfBatch, ref results);
-        } while (!BatchOfTests.Run(results, numberOfFaces, marginOfError));
-        Console.WriteLine(results.Count);
+            Thread.Sleep(1);
+        } while (IsAtLeastOneThreadAlive());
+
+        stopwatch.Stop();
+        Console.WriteLine($"{Math.Round(stopwatch.Elapsed.TotalSeconds)}s");
+    }
+
+    public static bool IsAtLeastOneThreadAlive()
+    {
+        foreach (TestingThread runningThread in runningThreads)
+        {
+            if (runningThread.Thread.IsAlive)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

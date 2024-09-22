@@ -12,3 +12,4 @@ c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\obj\Debug\net8.0\refint\FairDic
 c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\obj\Debug\net8.0\FairDiceParadigm.pdb
 c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\obj\Debug\net8.0\FairDiceParadigm.genruntimeconfig.cache
 c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\obj\Debug\net8.0\ref\FairDiceParadigm.dll
+c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\obj\Debug\net8.0\FairDiceParadigm.sourcelink.json

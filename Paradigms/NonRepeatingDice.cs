@@ -17,7 +17,7 @@ public class NonRepeatingDice : IDice
 
         do
         {
-            currentFace = (int)(pureRandom.NextInt64(numberOfFaces) + 1);
+            currentFace = pureRandom.Next(numberOfFaces) + 1;
         } while (currentFace == previousFace);
 
         return currentFace;

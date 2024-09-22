@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FairDiceParadigm
-build_property.ProjectDir = C:\Users\rocsy\workspace_cSharp\FairDiceParadigm\
+build_property.ProjectDir = c:\Users\rocsy\workspace_cSharp\FairDiceParadigm\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
