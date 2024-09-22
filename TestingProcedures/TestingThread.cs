@@ -1,8 +1,6 @@
-using System.Diagnostics;
-
 public class TestingThread
 {
-    public Thread Thread {get; private set;}
+    public Thread Thread { get; private set; }
 
     private readonly int numberOfTests;
     private int numberOfTries;

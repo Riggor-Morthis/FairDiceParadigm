@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FairDiceParadigm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5ce2baddd079f86163f9db00ba5620b547f64ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56866632165f0a954cd4e1f590b41fc31b20f9dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FairDiceParadigm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FairDiceParadigm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

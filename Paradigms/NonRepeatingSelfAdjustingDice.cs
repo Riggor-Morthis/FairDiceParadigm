@@ -48,7 +48,8 @@ public class NonRepeatingSelfAdjustingDice : IDice
 
         for (int i = 0; i < faceProbabilities.Length; i++)
         {
-            if(i != rolledFace){
+            if (i != rolledFace)
+            {
                 faceProbabilities[i] += previousRolledFaceProbability / (numberOfFaces - 1d);
             }
         }
