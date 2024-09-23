@@ -31,7 +31,9 @@ public static class BatchOfTests
 
         foreach (int result in results)
         {
+
             probabilites[result - 1]++;
+
         }
         for (int i = 0; i < probabilites.Length; i++)
         {

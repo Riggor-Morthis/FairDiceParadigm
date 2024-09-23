@@ -20,6 +20,8 @@ public class NonRepeatingDice : IDice
             currentFace = pureRandom.Next(numberOfFaces) + 1;
         } while (currentFace == previousFace);
 
+        previousFace = currentFace;
+
         return currentFace;
     }
 }

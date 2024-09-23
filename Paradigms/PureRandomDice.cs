@@ -1,16 +1,16 @@
 public class PureRandomDice : IDice
 {
     private int numberOfFaces;
-    private Random pureRandom;
+    private Random random;
 
     public PureRandomDice(int numberOfFaces)
     {
         this.numberOfFaces = numberOfFaces;
-        pureRandom = new();
+        random = new();
     }
 
     public int Roll()
     {
-        return (int)(pureRandom.NextInt64(numberOfFaces) + 1);
+        return random.Next(numberOfFaces) + 1;
     }
 }

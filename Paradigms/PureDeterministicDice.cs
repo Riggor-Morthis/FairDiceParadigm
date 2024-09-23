@@ -32,7 +32,8 @@ public class PureDeterministicDice : IDice
 
         for (int i = 0; i < resultsArray.Length; i++)
         {
-            randomIndex = random.Next(0, numberOfFaces);
+            randomIndex = random.Next(numberOfFaces);
+
             resultBuffer = resultsArray[randomIndex];
             resultsArray[randomIndex] = resultsArray[i];
             resultsArray[i] = resultBuffer;
