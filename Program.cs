@@ -7,8 +7,8 @@
     {
         int numberOfFaces = 6;
         int sizeOfBatch = 1;
-        int numberOfTests = 1000000;
-        double marginOfError = .1d;
+        int numberOfTests = 10000;
+        double marginOfError = .05d;
 
         _ = new TestingThread(new FastRefreshDeterministicDice(numberOfFaces),
                               numberOfFaces,
@@ -24,12 +24,26 @@
                               marginOfError,
                               "Least Worst Dice");
 
-        _ = new TestingThread(new NonRepeatingDeterministicDice(numberOfFaces),
+        _ = new TestingThread(new NonRepeatingDeterministicDiceSquared(numberOfFaces),
                               numberOfFaces,
                               sizeOfBatch,
                               numberOfTests,
                               marginOfError,
-                              "Non Repeating Deterministic Dice");
+                              "Non Repeating Deterministic Dice Squared");
+
+        _ = new TestingThread(new NonRepeatingDeterministicDiceTen(numberOfFaces),
+                              numberOfFaces,
+                              sizeOfBatch,
+                              numberOfTests,
+                              marginOfError,
+                              "Non Repeating Deterministic Dice Ten");
+
+        _ = new TestingThread(new NonRepeatingDeterministicDiceTwo(numberOfFaces),
+                              numberOfFaces,
+                              sizeOfBatch,
+                              numberOfTests,
+                              marginOfError,
+                              "Non Repeating Deterministic Dice Two");
 
         _ = new TestingThread(new NonRepeatingDice(numberOfFaces),
                               numberOfFaces,
@@ -45,12 +59,12 @@
                               marginOfError,
                               "Non Repeating Self Adjusting Dice");
 
-        /*_ = new TestingThread(new PureDeterministicDice(numberOfFaces),
-                                      numberOfFaces,
-                                      sizeOfBatch,
-                                      numberOfTests,
-                                      marginOfError,
-                                      "Pure Deterministic Dice");*/
+        _ = new TestingThread(new PureDeterministicDice(numberOfFaces),
+                              numberOfFaces,
+                              sizeOfBatch,
+                              numberOfTests,
+                              marginOfError,
+                              "Pure Deterministic Dice");
 
         _ = new TestingThread(new SelfAdjustingDice(numberOfFaces),
                               numberOfFaces,

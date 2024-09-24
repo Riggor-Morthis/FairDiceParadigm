@@ -1,34 +1,38 @@
-public class NonRepeatingDeterministicDice : IDice
+public abstract class ANonRepeatingDeterministicDice : IDice
 {
-    private int numberOfFaces;
-    private Random random;
-    private int[] plannedRolls;
-    private int currentPlannedIndex;
+    protected int numberOfFaces;
+    protected Random random;
+    protected int[] plannedRolls;
+    protected int currentPlannedIndex;
+    protected int scaleFactor;
 
-    public NonRepeatingDeterministicDice(int numberOfFaces)
+    public ANonRepeatingDeterministicDice(int numberOfFaces)
     {
         this.numberOfFaces = numberOfFaces;
         random = new();
+        SetScaleFactor();
+        CreatePlannedRolls();
         GeneratePlannedRollsArray();
     }
 
-    private void CreatePlannedRolls()
+    protected abstract void SetScaleFactor();
+
+    protected void CreatePlannedRolls()
     {
-        plannedRolls = new int[10 * numberOfFaces];
+        plannedRolls = new int[scaleFactor * numberOfFaces];
 
         for (int i = 0; i < plannedRolls.Length; i++)
         {
-            plannedRolls[i] = (i / 10) + 1;
+            plannedRolls[i] = (i / scaleFactor) + 1;
         }
     }
 
-    private void GeneratePlannedRollsArray()
+    protected void GeneratePlannedRollsArray()
     {
         bool isFullyScrambled;
         int randomIndex;
         int swapBuffer;
 
-        CreatePlannedRolls();
         currentPlannedIndex = 0;
 
         do
@@ -48,6 +52,7 @@ public class NonRepeatingDeterministicDice : IDice
                     {
                         randomIndex = random.Next(plannedRolls.Length);
                     } while (randomIndex == i || randomIndex == i + 1);
+
                     swapBuffer = plannedRolls[i];
                     plannedRolls[i] = plannedRolls[randomIndex];
                     plannedRolls[randomIndex] = swapBuffer;
@@ -66,6 +71,7 @@ public class NonRepeatingDeterministicDice : IDice
 
         int returnValue = plannedRolls[currentPlannedIndex];
         currentPlannedIndex++;
+
 
         return returnValue;
     }
