@@ -34,9 +34,9 @@ public class TestingThread
         {
             numberOfTries += CalculateNumberOfTries();
         }
-        double averageNumberOfTries = numberOfTries / numberOfTests;
+        double averageNumberOfTries = (double)numberOfTries / (double)numberOfTests;
 
-        Console.WriteLine($"{averageNumberOfTries.ToString("0000000")} rolls for {diceName}");
+        Console.WriteLine($"{averageNumberOfTries.ToString("0000.00")} rolls for {diceName}");
     }
 
     private int CalculateNumberOfTries()

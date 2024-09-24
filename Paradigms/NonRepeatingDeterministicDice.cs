@@ -1,24 +1,24 @@
-public abstract class ANonRepeatingDeterministicDice : IDice
+public class NonRepeatingDeterministicDice : IDice
 {
-    protected int numberOfFaces;
-    protected Random random;
-    protected int[] plannedRolls;
-    protected int currentPlannedIndex;
-    protected int scaleFactor;
+private int numberOfFaces;
+    private Random random;
+    private int[] plannedRolls;
+    private int currentPlannedIndex;
+    private int scaleFactor;
 
-    public ANonRepeatingDeterministicDice(int numberOfFaces)
+    public NonRepeatingDeterministicDice(int numberOfFaces)
     {
         this.numberOfFaces = numberOfFaces;
         random = new();
-        SetScaleFactor();
+
         CreatePlannedRolls();
         GeneratePlannedRollsArray();
     }
 
-    protected abstract void SetScaleFactor();
-
-    protected void CreatePlannedRolls()
+    private void CreatePlannedRolls()
     {
+        scaleFactor = (int)(50d / numberOfFaces);
+        
         plannedRolls = new int[scaleFactor * numberOfFaces];
 
         for (int i = 0; i < plannedRolls.Length; i++)
@@ -27,7 +27,7 @@ public abstract class ANonRepeatingDeterministicDice : IDice
         }
     }
 
-    protected void GeneratePlannedRollsArray()
+    private void GeneratePlannedRollsArray()
     {
         bool isFullyScrambled;
         int randomIndex;

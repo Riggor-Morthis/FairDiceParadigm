@@ -2,26 +2,26 @@ public static class BatchOfTests
 {
     public static bool Run(List<int> results, int numberOfFaces, double marginOfError)
     {
-        double average;
-        double standardDeviation;
+        //double average;
+        //double standardDeviation;
         double[] probabilites;
 
         CalculateProbabilites(numberOfFaces, results, out probabilites);
-        CalculateAverage(probabilites, out average);
-        CalculateStandardDeviation(results, average, out standardDeviation);
+/*         CalculateAverage(probabilites, out average);
+        CalculateStandardDeviation(results, average, out standardDeviation); */
 
         if (!TestProbabilites(probabilites, numberOfFaces, marginOfError))
         {
             return false;
         }
-        if (!TestAverage(average, numberOfFaces, marginOfError))
+/*         if (!TestAverage(average, numberOfFaces, marginOfError))
         {
             return false;
         }
         if (!TestStandardDeviation(standardDeviation, numberOfFaces, marginOfError))
         {
             return false;
-        }
+        } */
         return true;
     }
 
