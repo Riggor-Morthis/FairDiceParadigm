@@ -1,10 +1,9 @@
 public class NonRepeatingDeterministicDice : IDice
 {
-private int numberOfFaces;
+    private int numberOfFaces;
     private Random random;
     private int[] plannedRolls;
     private int currentPlannedIndex;
-    private int scaleFactor;
 
     public NonRepeatingDeterministicDice(int numberOfFaces)
     {
@@ -17,8 +16,7 @@ private int numberOfFaces;
 
     private void CreatePlannedRolls()
     {
-        scaleFactor = (int)(50d / numberOfFaces);
-        
+        int scaleFactor = (int)Math.Round(40d / numberOfFaces);
         plannedRolls = new int[scaleFactor * numberOfFaces];
 
         for (int i = 0; i < plannedRolls.Length; i++)
@@ -71,7 +69,6 @@ private int numberOfFaces;
 
         int returnValue = plannedRolls[currentPlannedIndex];
         currentPlannedIndex++;
-
 
         return returnValue;
     }

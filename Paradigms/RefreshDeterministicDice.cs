@@ -1,11 +1,12 @@
-public class PureDeterministicDice : IDice
+public class RefreshDeterministicDice : IDice
 {
     private int numberOfFaces;
     private Random random;
     private int[] resultsArray;
     private int resultsIndex;
+    private int refreshPoint;
 
-    public PureDeterministicDice(int numberOfFaces)
+    public RefreshDeterministicDice(int numberOfFaces)
     {
         this.numberOfFaces = numberOfFaces;
         CreateResultsList();
@@ -16,8 +17,9 @@ public class PureDeterministicDice : IDice
     {
         random = new();
         resultsArray = new int[numberOfFaces];
+        refreshPoint = (int)(numberOfFaces * .75f) - 1;
 
-        for (int i = 0; i < numberOfFaces; i++)
+        for (int i = 0; i < resultsArray.Length; i++)
         {
             resultsArray[i] = i + 1;
         }
@@ -34,7 +36,7 @@ public class PureDeterministicDice : IDice
         {
             do
             {
-                randomIndex = random.Next(numberOfFaces);
+                randomIndex = random.Next(0, resultsArray.Length);
             } while (randomIndex == i);
 
             resultBuffer = resultsArray[randomIndex];
@@ -46,7 +48,7 @@ public class PureDeterministicDice : IDice
     public int Roll()
     {
         int returnValue;
-        if (resultsIndex == numberOfFaces)
+        if (resultsIndex == refreshPoint)
         {
             ScrambleResultsArray();
         }

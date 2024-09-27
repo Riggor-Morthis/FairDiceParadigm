@@ -19,10 +19,17 @@ public class LeastWorstDice : IDice
     private int GetLeastWorstRoll()
     {
         int diceOne = random.Next(numberOfFaces);
-        int diceTwo = random.Next(numberOfFaces);
+        int diceTwo;
+        int diceOneOccurences;
+        int diceTwoOccurences;
 
-        int diceOneOccurences = occurences[diceOne];
-        int diceTwoOccurences = occurences[diceTwo];
+        do
+        {
+            diceTwo = random.Next(numberOfFaces);
+        } while (diceOne == diceTwo);
+
+        diceOneOccurences = occurences[diceOne];
+        diceTwoOccurences = occurences[diceTwo];
 
         if (diceOneOccurences < diceTwoOccurences)
         {
