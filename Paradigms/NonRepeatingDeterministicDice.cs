@@ -16,12 +16,11 @@ public class NonRepeatingDeterministicDice : IDice
 
     private void CreatePlannedRolls()
     {
-        int scaleFactor = (int)Math.Round(40d / numberOfFaces);
-        plannedRolls = new int[scaleFactor * numberOfFaces];
+        plannedRolls = new int[2 * numberOfFaces];
 
         for (int i = 0; i < plannedRolls.Length; i++)
         {
-            plannedRolls[i] = (i / scaleFactor) + 1;
+            plannedRolls[i] = (i / 2) + 1;
         }
     }
 

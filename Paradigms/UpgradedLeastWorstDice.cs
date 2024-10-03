@@ -10,7 +10,7 @@ public class UpgradedLeastWorstDice : IDice
         this.numberOfFaces = numberOfFaces;
         random = new();
         occurences = new short[numberOfFaces];
-        bonusDice = numberOfFaces / 4;
+        bonusDice = Math.Min(numberOfFaces / 2 - 1, 8);
     }
 
     public int Roll()

@@ -1,0 +1,90 @@
+	TESTS PROBABILITE UNIQUEMENT
+		int numberOfFaces = X;
+        int sizeOfBatch = numberOfFaces;
+        int numberOfTests = 1000000;
+        double marginOfError = .1d;
+
+	-- DEE FOUR --
+016.05 rolls for Robin Hood Dice
+017.71 rolls for Upgraded Least Worst Dice
+017.87 rolls for Least Worst Dice
+037.33 rolls for Self Adjusting Dice
+040.00 rolls for Non Repeating Deterministic Dice
+119.55 rolls for Non Repeating Dice
+173.76 rolls for Refresh Deterministic Dice
+	-- DEE SIX --
+042.00 rolls for Non Repeating Deterministic Dice
+054.48 rolls for Robin Hood Dice
+056.86 rolls for Upgraded Least Worst Dice
+057.11 rolls for Least Worst Dice
+147.60 rolls for Self Adjusting Dice
+474.21 rolls for Refresh Deterministic Dice
+530.92 rolls for Non Repeating Dice
+	-- DEE EIGHT --
+0040.00 rolls for Non Repeating Deterministic Dice
+0072.54 rolls for Upgraded Least Worst Dice
+0096.22 rolls for Least Worst Dice
+0105.45 rolls for Robin Hood Dice
+0321.88 rolls for Self Adjusting Dice
+0634.51 rolls for Refresh Deterministic Dice
+1125.81 rolls for Non Repeating Dice
+	-- DEE TEN --
+0040.00 rolls for Non Repeating Deterministic Dice
+0111.90 rolls for Upgraded Least Worst Dice
+0146.79 rolls for Least Worst Dice
+0169.78 rolls for Robin Hood Dice
+0556.16 rolls for Self Adjusting Dice
+1047.27 rolls for Refresh Deterministic Dice
+1846.26 rolls for Non Repeating Dice
+	-- DEE TWELVE --
+0036.00 rolls for Non Repeating Deterministic Dice
+0119.21 rolls for Upgraded Least Worst Dice
+0184.74 rolls for Least Worst Dice
+0221.87 rolls for Robin Hood Dice
+0763.43 rolls for Self Adjusting Dice
+1151.63 rolls for Refresh Deterministic Dice
+	/!\ -1682.20 rolls for Non Repeating Dice - OVERFLOW, ON ARRETE DE LE CONSIDERER /!\
+	-- DEE TWENTY --
+	/!\ -1958.00 rolls for Refresh Deterministic Dice - OVERFLOW, ON ARRETE DE LE CONSIDERER /!\
+040.00 rolls for Non Repeating Deterministic Dice
+0222.18 rolls for Upgraded Least Worst Dice
+0428.06 rolls for Least Worst Dice
+0521.24 rolls for Robin Hood Dice
+1865.98 rolls for Self Adjusting Dice
+
+Non Repeating Deterministic -> surement trop rapide
+Upgraded Least Worst -> a priori le meilleur, au mois le plus interessant -> nouvelle upgrade
+Least Worst -> complement battu par son frere, on arrete de le considerer
+Robin Hood -> le plus lent parmi les interessants
+Self Adjusting -> bien trop lent, on arrete de le considerer
+
+	TESTS PROBABILITE et ECART TYPE et MOYENNE
+		int numberOfFaces = X;
+        int sizeOfBatch = 1;
+        int numberOfTests = 1000000;
+        double marginOfError = .1d;
+
+	-- DEE FOUR --
+004.00 rolls for Non Repeating Deterministic Dice
+013.59 rolls for Upgraded Least Worst Dice
+016.62 rolls for Robin Hood Dice
+	-- DEE SIX --
+012.00 rolls for Non Repeating Deterministic Dice
+022.02 rolls for Upgraded Least Worst Dice
+047.64 rolls for Robin Hood Dice
+	-- DEE EIGHT --
+016.00 rolls for Non Repeating Deterministic Dice
+031.90 rolls for Upgraded Least Worst Dice
+089.69 rolls for Robin Hood Dice
+	-- DEE TEN --
+020.00 rolls for Non Repeating Deterministic Dice
+042.41 rolls for Upgraded Least Worst Dice
+142.81 rolls for Robin Hood Dice
+	-- DEE TWELVE --
+024.00 rolls for Non Repeating Deterministic Dice
+53.18 rolls for Upgraded Least Worst Dice
+194.43 rolls for Robin Hood Dice
+	-- DEE TWENTY --
+040.00 rolls for Non Repeating Deterministic Dice
+112.61 rolls for Upgraded Least Worst Dice
+459.91 rolls for Robin Hood Dice
